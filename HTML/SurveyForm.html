@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="/CSS/SurveyForm.css">
+  </head>
+  <body>
+    <h1 id="title">Survey Form</h1>
+    <p id="description">This survey is to get user feedback to improve our services</p>
+    <form id="survey-form" method="get">
+      <fieldset>
+        <label id="name-label" for="name">Name: <input id="name" name="name" type="text" placeholder="Enter your full name" required/></label>
+        <label id="email-label" for="email">Email: <input id="email" name="email" type="email" placeholder="Enter your email id" required /></label>
+        <label id="number-label" for="number">Mobile Number: <input id="number" name="mobileNumber" type="number" min=7999999999 max=9999999999 placeholder="Enter your mobile number"/></label>
+      </fieldset>
+      <fieldset>
+        Occupation:
+        <label><input class="inline" type="radio" name="occupation" value="Business" checked />Business</label>
+          <label><input  class="inline" type="radio" value="Employed" name="occupation" />Employed</label>
+          <label><input  class="inline" type="radio" value="Unemployed" name="occupation" />Unemployed</label>
+          <label><input  class="inline" type="radio" value="Student" name="occupation" />Student</label>
+      </fieldset>
+      <fieldset>
+        <label for="dropdown">
+          How did you hear about us?
+          <select id="dropdown" name="dropdown">
+            <option disabled>None</option>;
+            <option value="instagram">Instagram</option>;
+            <option value="facebook">Facebook</option>;
+            <option value="whatsapp">Whatsapp</option>;
+            <option value="google">Google</option>;
+            <option value="other">Other</option>;
+          </select>
+          <label for="improvements">
+            What can we improve: 
+            <textarea id="Improvements" rows="3" cols="30">
+            </textarea>
+          </label>
+        </label>
+      </fieldset>
+      <fieldset>
+        <label><input  class="inline" type="checkbox" name="checkbox" value="nri" />Not a NRI</label>
+        <label><input  class="inline" type="checkbox" name="checkbox" value="cookies" />Accept cookies</label>
+        <label><input  class="inline" type="checkbox" name="checkbox" value="t&c" />Terms & Condition</label>
+      </fieldset>
+      <input id="submit" type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
