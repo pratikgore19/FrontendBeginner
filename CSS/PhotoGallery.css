@@ -35,11 +35,11 @@
     height: 300px;
     object-fit: cover;
     border-radius: 10px;
+    transition: transform 1s ease-in;
   }
 
   .gallery img:hover {
     transform: rotateY(180deg);
-    transition: 1s ease-in;
   }
   
   .gallery::after {
