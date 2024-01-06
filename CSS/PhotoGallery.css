@@ -36,6 +36,11 @@
     object-fit: cover;
     border-radius: 10px;
   }
+
+  .gallery img:hover {
+    transform: rotateY(180deg);
+    transition: 1s ease-in;
+  }
   
   .gallery::after {
     content: "";
