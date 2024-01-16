@@ -8,15 +8,12 @@ body {
     max-width: 100vw;
     min-height: 100vh;
     background-color: bisque;
-}
-
-header {
-    position: sticky;
-    top: 0;
+    overflow-y: hidden;
 }
 
 nav {
     display: flex;
+    position: relative;
     justify-content: space-between;
     align-items: center;
     background-color: beige;
@@ -24,11 +21,12 @@ nav {
     height: 3rem;
     min-height: 50px;
     padding: 0 10px;
+    z-index: 2;
+    box-shadow: 0 5px 20px black;
 }
 
 .menu-1 {
     width: 90%;
-    padding-left: 2rem;
 }
 
 .menu-2 {
@@ -40,43 +38,74 @@ nav {
 
 .menu-options {
     display: flex;
-    justify-content: start;
+    flex-direction: row;
+    padding: 0;
     gap: 1rem;
     list-style-type: none;
+    position: relative;
 }
 
 a {
     text-decoration: none;
 }
 
-.navbar .hamburger {
-    display: block;
-    height: 26px;
-    width: 32px;
-    position: absolute;
-    top: 0.8rem;
-    left: 0.5rem;
-    z-index:  2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.slide-bar,.navbar .hamburger,.navbar .hamburger .line {
+    display: none;
 }
 
-.navbar .hamburger .line {
-    display: block;
-    height: 0.35rem;
-    width: 100%;
-    border-radius: 10px;
-    background-color: #0d2a3b;
-}
+@media (max-width:700px) {
+    .navbar .hamburger {
+        display: block;
+        height: 26px;
+        width: 32px;
+        position: absolute;
+        top: 0.8rem;
+        left: 0.5rem;
+        z-index:  2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .navbar .hamburger .line {
+        display: block;
+        height: 0.35rem;
+        width: 100%;
+        border-radius: 10px;
+        background-color: #0d2a3b;
+    }
+    .slide-bar {
+        display: block;
+        background-color: beige;
+        margin-top: -14px;
+        width: 20%;
+        min-width: 150px;
+        height: calc(100vh);
+        transform: translateX(-100%);
+        position: relative;
+    }
 
-.slide-bar {
-    background-color: aliceblue;
-    width: 20%;
-    height: calc(100vh - 3rem);
-    transform: translateX(-100%);
-}
+    .hidden-menu-options {
+        display: flex;
+        flex-direction: column;
+        align-content: start;
+        row-gap: 1rem;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        list-style-type: none;
+    }
 
-.show {
-    transform: translateX(0);
+    .hidden-menu-options li {
+        position: relative;
+        right: 2rem;
+    }
+
+    .menu-options {
+        display: none;
+    }
+    
+    .show {
+        transform: translateX(0);
+    }
 }
