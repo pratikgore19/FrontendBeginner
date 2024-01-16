@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    transition: all 0.5s ease-in-out;
 }
 
 body {
@@ -21,7 +20,7 @@ nav {
     height: 3rem;
     min-height: 50px;
     padding: 0 10px;
-    z-index: 2;
+    z-index: 1;
     box-shadow: 0 5px 20px black;
 }
 
@@ -107,5 +106,8 @@ a {
     
     .show {
         transform: translateX(0);
+    }
+    .slide-bar,.show {
+        transition: all 0.5s ease-in-out;
     }
 }
