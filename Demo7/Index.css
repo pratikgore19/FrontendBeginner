@@ -75,13 +75,13 @@ a {
     }
     .slide-bar {
         display: block;
-        background-color: beige;
+        background-color: blanchedalmond;
+        z-index: 3;
         margin-top: -14px;
-        width: 20%;
-        min-width: 150px;
+        width: 80%;
+        max-width: 350px;
         height: calc(100vh);
         transform: translateX(-100%);
-        position: relative;
     }
 
     .hidden-menu-options {

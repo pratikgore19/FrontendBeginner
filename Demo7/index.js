@@ -6,8 +6,7 @@ function showSlideBar() {
         sliderBar.classList.remove('show');
     }
     else {
-        sliderBar.classList.add('show');
-    }
+        sliderBar.classList.add('show');    }
 }
 
 hamburgerBtn.addEventListener('click', showSlideBar);
