@@ -1,55 +1,51 @@
-let listItems = document.getElementById("list-items");
-let addButton = document.getElementById("add-button");
-let inputField = document.getElementById("todo-task");
-let resetButton = document.getElementById("reset-button");
-
-
+let listItems = $("#list-items");
+let inputField = $("#todo-task");
 let currentTask = "";
 
-inputField.addEventListener('input', function(e) {
-    currentTask = e.target.value;
+inputField.on({
+    'input': function (e) {
+        currentTask = e.target.value;
+    },
+    'keyup': function (e) {
+        if (e.key == 'Enter') {
+            addTask();
+        }
+    }
 })
 
 function createNode() {
-    let numberOftasks = listItems.childElementCount;
-    let taskElement = document.createElement('li');
-    let taskSpace = document.createElement('span')
-    let textNode = document.createTextNode(currentTask);
-    taskSpace.appendChild(textNode);
-    taskElement.appendChild(taskSpace);
-    taskSpace.className = 'task-space';
-    let deleteIcon = document.createElement('span');
-    deleteIcon.className = 'delete-icon';
-    deleteIcon.innerHTML = '&#x2715';
-    taskElement.appendChild(deleteIcon);
-    taskElement.id = "task"+(numberOftasks+1);
-    deleteIcon.addEventListener('click',function() {
+    const taskElement = $('<li>', {
+        'class': 'tasks',
+        'id': listItems.children().length + 1
+    });
+    const taskSpace = $('<span>', {
+        'class': 'task-space'
+    }).text(currentTask);
+    taskElement.append(taskSpace);
+    const deleteIcon = $('<span>', {
+        'class': 'delete-icon'
+    }).html('&#x2715');
+    taskElement.append(deleteIcon);
+    deleteIcon.click(function () {
         taskElement.remove();
     })
     return taskElement;
 }
 
 function addTask() {
-    if(currentTask!==undefined && currentTask!==null && currentTask!=="") {
+    if (currentTask !== undefined && currentTask !== null && currentTask !== "") {
         let taskElement = createNode();
-        listItems.appendChild(taskElement);
-        inputField.value = "";
-        currentTask = "";
+        console.log('created node element', taskElement);
+        listItems.append(taskElement);
+        inputField.val("");
     }
     else {
         alert("Please enter valid input first");
     }
 }
 
-addButton.addEventListener('click', addTask);
-inputField.addEventListener('keyup',function(e) {
-    if (e.key=='Enter') {
-        addTask();
-    }
-});
+$("#add-button").click(addTask);
 
-resetButton.addEventListener('click', function() {
-    for(i = 1; i<=listItems.childElementCount;i++) {
-        listItems.remove(document.getElementById("task"+i));
-    }
+$("#reset-button").click(function () {
+    listItems.remove();
 })
